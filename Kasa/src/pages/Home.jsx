@@ -1,11 +1,12 @@
 import React from "react";
 import Navigation from "./Navigation";
-
+import Banner from "./Bannier";
 const Home = () => {
   return (
     <div>
       <Navigation />
-      <h1>Home page</h1>
+      <Banner />
+      <h1>Acceuil</h1>
     </div>
   );
 };

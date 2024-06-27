@@ -1,12 +1,12 @@
 import React from "react";
 import Navigation from "./Navigation";
-import Banner from "./Bannier";
+import Banner from "./BannierHome";
+/* import AccommodationsGrid from "../components/AccommodationSquare";*/
 const Home = () => {
   return (
     <div>
       <Navigation />
       <Banner />
-      <h1>Acceuil</h1>
     </div>
   );
 };

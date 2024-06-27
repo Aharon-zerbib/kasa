@@ -1,15 +1,15 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import About from "./pages/About";
+import Propo from "./pages/Propo";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        {/* path=* function si jamais lur ne corespond pas */}
+        <Route path="/Propo" element={<Propo />} />
+        {/* path=* function si jamais  ne corespond pas */}
         <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>

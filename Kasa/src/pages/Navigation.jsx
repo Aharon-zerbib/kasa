@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./css/Navigation.css";
+import "../css/Navigation.css";
 
 const Navigation = () => {
   return (
@@ -10,7 +10,7 @@ const Navigation = () => {
       </div>
       <div className="links">
         <Link to="/home">Accueil</Link>
-        <Link to="/about">A Propos</Link>
+        <Link to="/Propo">A Propos</Link>
       </div>
     </div>
   );

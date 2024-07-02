@@ -29,3 +29,8 @@
   display: flex;
   align-items: center;
 }
+.apartment-list {
+  background: #f6f6f6;
+  border-radius: 25px;
+  margin-bottom: 50px;
+}

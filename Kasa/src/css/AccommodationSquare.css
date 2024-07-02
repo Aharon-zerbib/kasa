@@ -16,11 +16,9 @@
   font-size: 1.2em;
 }
 
-.accommodation-square p {
-  margin: 10px;
-  color: #777;
-}
-
 .accommodation-square:hover {
   transform: scale(1.01);
+}
+.container {
+  margin-bottom: 15px;
 }

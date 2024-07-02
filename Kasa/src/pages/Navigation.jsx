@@ -9,7 +9,7 @@ const Navigation = () => {
         <img src="\public\kasa_red.svg" alt="" />
       </div>
       <div className="links">
-        <Link to="/home">Accueil</Link>
+        <Link to="/">Accueil</Link>
         <Link to="/Propo">A Propos</Link>
       </div>
     </div>

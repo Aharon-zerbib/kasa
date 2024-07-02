@@ -1,48 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
 import Navigation from "./Navigation";
 import Banner from "./BannierPropo";
+import CollapsibleSection from "../components/CollapsibleSection";
 import "../css/Propo.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const About = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const handleCollapseToggle = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+  const sections = [
+    {
+      title: "Fiabilité",
+      content:
+        "Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées par nos équipes.",
+    },
+    {
+      title: "Respect",
+      content:
+        "La bienveillance fait partie des valeurs fondatrices de Kasa. Tout comportement discriminatoire ou de perturbation du voisinage entraînera une exclusion de notre plateforme.",
+    },
+    {
+      title: "Service",
+      content:
+        "Nos équipes se tiennent à votre disposition pour vous fournir une expérience parfaite. N'hésitez pas à nous contacter si vous avez la moindre question.",
+    },
+    {
+      title: "Sécurité",
+      content:
+        "La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes.",
+    },
+  ];
 
   return (
     <div>
       <Navigation />
       <Banner />
-      {["Fiabilité", "Respect", "Service", "Sécurité"].map((title, index) => (
-        <div className="container_collapse" key={index}>
-          <button
-            className={`collapsible ${activeIndex === index ? "active" : ""}`}
-            onClick={() => handleCollapseToggle(index)}
-          >
-            {title}
-            <span
-              className={`fa-solid fa-chevron-${
-                activeIndex === index ? "down" : "up"
-              }`}
-              aria-hidden="true"
-            ></span>
-          </button>
-          <div className={`content ${activeIndex === index ? "show" : ""}`}>
-            <div className="content_collapse">
-              <p>
-                {index === 0 &&
-                  "Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées par nos équipes."}
-                {index === 1 &&
-                  "La bienveillance fait partie des valeurs fondatrices de Kasa. Tout comportement discriminatoire ou de perturbation du voisinage entraînera une exclusion de notre plateforme."}
-                {index === 2 &&
-                  "Nos équipes se tiennent à votre disposition pour vous fournir une expérience parfaite. N'hésitez pas à nous contacter si vous avez la moindre question."}
-                {index === 3 &&
-                  "La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes."}
-              </p>
-            </div>
-          </div>
-        </div>
+      {sections.map((section, index) => (
+        <CollapsibleSection
+          key={index}
+          title={section.title}
+          content={section.content}
+        />
       ))}
       <div className="footerContainer">
         <img src="public/kasa_white.svg" alt="kasa" />

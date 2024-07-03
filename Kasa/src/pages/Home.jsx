@@ -46,7 +46,7 @@ const Home = () => {
         </div>
       )}
       <div className="footerContainer">
-        <img src="public\kasa_white.svg" alt="kasa" />
+        <img src="public/kasa_white.svg" alt="kasa" />
         <p className="PFooter"> © 2020 Kasa. All rights reserved</p>
       </div>
     </div>

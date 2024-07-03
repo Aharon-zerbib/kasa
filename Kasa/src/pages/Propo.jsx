@@ -42,7 +42,7 @@ const About = () => {
       ))}
       <div className="footerContainer">
         <img src="public/kasa_white.svg" alt="kasa" />
-        <p className="PFooter">© 2020 - 2024 Kasa. All rights reserved.</p>
+        <p className="PFooter">© 2020 Kasa. All rights reserved</p>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "./Navigation";
 import Banner from "./BannierPropo";
+import Footer from "./Footer";
 import CollapsibleSection from "../components/CollapsibleSection";
 import "../css/Propo.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -40,10 +41,7 @@ const About = () => {
           content={section.content}
         />
       ))}
-      <div className="footerContainer">
-        <img src="public/kasa_white.svg" alt="kasa" />
-        <p className="PFooter">© 2020 Kasa. All rights reserved</p>
-      </div>
+      <Footer />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navigation from "./Navigation";
 import Banner from "./BannierHome";
+import Footer from "./Footer";
 import AccommodationSquare from "../components/AccommodationSquare";
 import "../css/listAppartemen.css";
 import "../css/footer.css";
@@ -45,10 +46,7 @@ const Home = () => {
           )}
         </div>
       )}
-      <div className="footerContainer">
-        <img src="public/kasa_white.svg" alt="kasa" />
-        <p className="PFooter"> © 2020 Kasa. All rights reserved</p>
-      </div>
+      <Footer />
     </div>
   );
 };

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navigation from "../pages/Navigation";
+import "../css/Apartment.css";
 
 const Apartment = () => {
   const { id } = useParams();
   const [apartment, setApartment] = useState(null);
   const [error, setError] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    2;
     fetch(`/data/data.json`)
       .then((response) => {
         if (!response.ok) {
@@ -23,8 +24,20 @@ const Apartment = () => {
       .catch((error) => setError(error.message));
   }, [id]);
 
+  const nextSlide = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === apartment.pictures.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? apartment.pictures.length - 1 : prevIndex - 1
+    );
+  };
+
   if (error) {
-    return <div>Error fetching apartment details: {error}</div>;
+    return <div>Error: {error}</div>;
   }
 
   if (!apartment) {
@@ -33,28 +46,41 @@ const Apartment = () => {
 
   return (
     <div>
-      <Navigation />
+      <Navigation />{" "}
+      <div className="button-container">
+        <button className="prev-button" onClick={prevSlide}>
+          Previous
+        </button>
+        <button className="next-button" onClick={nextSlide}>
+          Next
+        </button>
+      </div>
+      <div className="gallery">
+        {apartment.pictures.length > 0 && (
+          <img
+            src={apartment.pictures[currentImageIndex]}
+            alt={`Image ${currentImageIndex + 1} of ${apartment.title}`}
+          />
+        )}
+      </div>
       <h1>{apartment.title}</h1>
-      <img src={apartment.cover} alt={apartment.title} />
+      <p>{apartment.location}</p>
       <p>{apartment.description}</p>
-      <h2>Host: {apartment.host.name}</h2>
-      <img src={apartment.host.picture} alt={apartment.host.name} />
-      <h3>Rating: {apartment.rating}</h3>
-      <h3>Location: {apartment.location}</h3>
+      <h3>Équipements</h3>
       <ul>
         {apartment.equipments.map((equipment, index) => (
           <li key={index}>{equipment}</li>
         ))}
       </ul>
+      <h3>Hôte</h3>
+      <p>{apartment.host.name}</p>
+      <img src={apartment.host.picture} alt={apartment.host.name} />
+      <h3>Tags</h3>
       <ul>
         {apartment.tags.map((tag, index) => (
           <li key={index}>{tag}</li>
         ))}
       </ul>
-      <div className="footerContainer">
-        <img src="../public/kasa_white.svg" alt="kasa" />
-        <p className="PFooter"> © 2020 Kasa. All rights reserved</p>
-      </div>
     </div>
   );
 };

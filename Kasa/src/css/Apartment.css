@@ -1,0 +1,23 @@
+.gallery {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.gallery img {
+  scroll-snap-align: start;
+  width: 100%;
+  height: auto;
+}
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.button-container .prev-button {
+  margin-right: auto;
+}
+
+.button-container .next-button {
+  justify-content: end;
+}

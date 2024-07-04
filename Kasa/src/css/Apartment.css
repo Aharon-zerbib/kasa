@@ -1,23 +1,92 @@
-.gallery {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
+@media (min-width: 1440px) {
+  html {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
 }
 
 .gallery img {
-  scroll-snap-align: start;
   width: 100%;
-  height: auto;
+  height: 500px;
+  object-fit: cover;
 }
-.button-container {
+.gallery-container {
+  position: relative;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+.description {
+  display: flex;
+}
+.lesTitre .Tags {
+  display: flex;
+  flex-direction: column;
+}
+.description .Tags {
   display: flex;
   align-items: center;
+  height: 25px;
+}
+.Tags ul li {
+  display: flex;
+  justify-content: center;
+  background-color: #ff6060;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 20px;
+  padding-right: 30px;
+  width: 200px;
+}
+.lesTitre h1 {
+  font-size: 36px;
+  font-weight: 500;
+  color: #ff6060;
+}
+.lesTitre p {
+  font-size: 18px;
+  font-weight: 500;
 }
 
-.button-container .prev-button {
-  margin-right: auto;
+.host {
+  display: flex;
+  width: 30%;
+}
+.host p {
+  text-align: right;
+  color: #ff6060;
+  font-size: 18px;
+  font-weight: 500;
+}
+.host img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
 }
 
-.button-container .next-button {
-  justify-content: end;
+.Colaps {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
 }

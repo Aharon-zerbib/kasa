@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navigation from "../pages/Navigation";
+import CollapsibleSection from "./CollapsibleSection";
 import "../css/Apartment.css";
 
 const Apartment = () => {
@@ -46,41 +47,57 @@ const Apartment = () => {
 
   return (
     <div>
-      <Navigation />{" "}
-      <div className="button-container">
+      <Navigation />
+      <div className="gallery-container">
         <button className="prev-button" onClick={prevSlide}>
           Previous
         </button>
+        <div className="gallery">
+          {apartment.pictures.length > 0 && (
+            <img
+              src={apartment.pictures[currentImageIndex]}
+              alt={`Image ${currentImageIndex + 1} of ${apartment.title}`}
+            />
+          )}
+        </div>
         <button className="next-button" onClick={nextSlide}>
           Next
         </button>
       </div>
-      <div className="gallery">
-        {apartment.pictures.length > 0 && (
-          <img
-            src={apartment.pictures[currentImageIndex]}
-            alt={`Image ${currentImageIndex + 1} of ${apartment.title}`}
-          />
-        )}
+      <div className="description">
+        <div className="lesTitre">
+          <h1>{apartment.title}</h1>
+          <p>{apartment.location}</p>
+        </div>
       </div>
-      <h1>{apartment.title}</h1>
-      <p>{apartment.location}</p>
-      <p>{apartment.description}</p>
-      <h3>Équipements</h3>
-      <ul>
-        {apartment.equipments.map((equipment, index) => (
-          <li key={index}>{equipment}</li>
-        ))}
-      </ul>
-      <h3>Hôte</h3>
-      <p>{apartment.host.name}</p>
-      <img src={apartment.host.picture} alt={apartment.host.name} />
-      <h3>Tags</h3>
-      <ul>
-        {apartment.tags.map((tag, index) => (
-          <li key={index}>{tag}</li>
-        ))}
-      </ul>
+      <div className="Tags">
+        <ul>
+          {apartment.tags.map((tag, index) => (
+            <li key={index}>{tag}</li>
+          ))}
+        </ul>
+      </div>
+      <div className="host">
+        <p>{apartment.host.name}</p>
+        <img src={apartment.host.picture} alt={apartment.host.name} />
+      </div>
+
+      <div className="Colaps">
+        <CollapsibleSection
+          title="Description"
+          content={apartment.description}
+        />
+        <CollapsibleSection
+          title="Équipements"
+          content={
+            <ul>
+              {apartment.equipments.map((equipment, index) => (
+                <li key={index}>{equipment}</li>
+              ))}
+            </ul>
+          }
+        />
+      </div>
     </div>
   );
 };

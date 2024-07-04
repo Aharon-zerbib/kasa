@@ -1,4 +1,3 @@
-// CollapsibleSection.js
 import React, { useState } from "react";
 import "../css/collapsible.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -24,7 +23,7 @@ const CollapsibleSection = ({ title, content }) => {
       </button>
       <div className={`content ${isActive ? "show" : ""}`}>
         <div className="content_collapse">
-          <p>{content}</p>
+          {typeof content === "string" ? <p>{content}</p> : content}
         </div>
       </div>
     </div>

@@ -69,6 +69,10 @@ const Apartment = () => {
           <h1>{apartment.title}</h1>
           <p>{apartment.location}</p>
         </div>
+        <div className="host">
+          <p>{apartment.host.name}</p>
+          <img src={apartment.host.picture} alt={apartment.host.name} />
+        </div>
       </div>
       <div className="Tags">
         <ul>
@@ -77,11 +81,6 @@ const Apartment = () => {
           ))}
         </ul>
       </div>
-      <div className="host">
-        <p>{apartment.host.name}</p>
-        <img src={apartment.host.picture} alt={apartment.host.name} />
-      </div>
-
       <div className="Colaps">
         <CollapsibleSection
           title="Description"

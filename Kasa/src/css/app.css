@@ -1,4 +1,4 @@
 a {
-  text-decoration: none; /* Enlever le soulignement */
-  color: inherit; /* Utiliser la couleur du texte environnant */
+  text-decoration: none;
+  color: inherit;
 }

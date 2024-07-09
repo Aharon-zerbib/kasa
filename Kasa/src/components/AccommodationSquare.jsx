@@ -7,8 +7,11 @@ const AccommodationSquare = ({ apartment }) => {
     <section className="container">
       <Link to={`/apartment/${apartment.id}`}>
         <div className="accommodation-square">
-          <img src={apartment.cover} alt={apartment.title} />
-          <h3>{apartment.title}</h3>
+          <div className="image-container">
+            <img src={apartment.cover} alt={apartment.title} />
+            <div className="overlay"></div>
+            <h3 className="image-title">{apartment.title}</h3>
+          </div>
         </div>
       </Link>
     </section>

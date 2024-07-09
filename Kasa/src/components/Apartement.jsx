@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navigation from "../pages/Navigation";
 import CollapsibleSection from "./CollapsibleSection";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../css/Apartment.css";
-
 const Apartment = () => {
   const { id } = useParams();
   const [apartment, setApartment] = useState(null);
@@ -50,20 +50,26 @@ const Apartment = () => {
       <Navigation />
       <div className="gallery-container">
         <button className="prev-button" onClick={prevSlide}>
-          Previous
+          <i className="fas fa-chevron-left fa-3x"></i>
         </button>
         <div className="gallery">
           {apartment.pictures.length > 0 && (
-            <img
-              src={apartment.pictures[currentImageIndex]}
-              alt={`Image ${currentImageIndex + 1} of ${apartment.title}`}
-            />
+            <>
+              <img
+                src={apartment.pictures[currentImageIndex]}
+                alt={`Image ${currentImageIndex + 1} of ${apartment.title}`}
+              />
+              <div className="counter">
+                {currentImageIndex + 1} / {apartment.pictures.length}
+              </div>
+            </>
           )}
         </div>
         <button className="next-button" onClick={nextSlide}>
-          Next
+          <i className="fas fa-chevron-right fa-3x"></i>
         </button>
       </div>
+
       <div className="description">
         <div className="lesTitre">
           <h1>{apartment.title}</h1>
@@ -96,6 +102,10 @@ const Apartment = () => {
             </ul>
           }
         />
+      </div>
+      <div className="footerContainer">
+        <img src="../public/kasa_white.svg" alt="kasa" />
+        <p className="PFooter">© 2020 Kasa. All rights reserved</p>
       </div>
     </div>
   );

@@ -40,3 +40,8 @@
   justify-content: center;
   margin-top: 20px;
 }
+@media (min-width: 375px) and (max-width: 720px) {
+  .banner__title {
+    font-size: 1.8rem;
+  }
+}

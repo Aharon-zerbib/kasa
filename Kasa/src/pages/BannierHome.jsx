@@ -11,7 +11,8 @@ const Banner = () => {
         className="banner__image"
       />
       <h1 className="banner__title">
-        Chez vous, <span>partout et ailleurs</span>
+        Chez vous,
+        <span>partout et ailleurs</span>
       </h1>
     </div>
   );

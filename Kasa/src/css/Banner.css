@@ -13,17 +13,19 @@
   height: 100%;
   object-fit: cover;
   border-radius: 25px;
-  opacity: 60;
-  bleed: Darken;
 }
-/* pour metre opaciter mais je  ne c pas comment faire 
-.banner__image {
-  filter: opacity(0.5) ;
+
+.banner__overlay {
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Noir avec opacité de 0.6 */
+  border-radius: 25px;
 }
-*/
+
 .banner__title {
   font-family: Montserrat, sans-serif;
-  width: 100%;
+  width: 84%;
   height: auto;
   padding: 20px;
   position: absolute;
@@ -40,8 +42,9 @@
   justify-content: center;
   margin-top: 20px;
 }
+
 @media (min-width: 375px) and (max-width: 720px) {
   .banner__title {
-    font-size: 1.8rem;
+    font-size: 25px;
   }
 }

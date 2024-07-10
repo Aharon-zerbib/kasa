@@ -4,6 +4,7 @@ import Navigation from "../pages/Navigation";
 import CollapsibleSection from "./CollapsibleSection";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../css/Apartment.css";
+
 const Apartment = () => {
   const { id } = useParams();
   const [apartment, setApartment] = useState(null);
@@ -35,6 +36,16 @@ const Apartment = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? apartment.pictures.length - 1 : prevIndex - 1
     );
+  };
+
+  const renderStars = (rating) => {
+    const stars = [];
+    for (let i = 0; i < 5; i++) {
+      stars.push(
+        <i key={i} className={`fas fa-star ${i < rating ? "filled" : ""}`}></i>
+      );
+    }
+    return stars;
   };
 
   if (error) {
@@ -69,7 +80,6 @@ const Apartment = () => {
           <i className="fas fa-chevron-right fa-3x"></i>
         </button>
       </div>
-
       <div className="description">
         <div className="lesTitre">
           <h1>{apartment.title}</h1>
@@ -80,6 +90,7 @@ const Apartment = () => {
           <img src={apartment.host.picture} alt={apartment.host.name} />
         </div>
       </div>
+      <div className="rating">{renderStars(apartment.rating)}</div>
       <div className="Tags">
         <ul>
           {apartment.tags.map((tag, index) => (

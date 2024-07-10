@@ -98,7 +98,17 @@ h1 {
   height: 70px;
   border-radius: 50%;
 }
+.rating {
+  display: flex;
+  justify-content: end;
+}
+.fas.fa-star {
+  color: #e3e3e3;
+}
 
+.fas.fa-star.filled {
+  color: #ff6060;
+}
 .Colaps {
   display: flex;
   align-items: center;
@@ -109,6 +119,7 @@ h1 {
 .container_collapse {
   padding-left: 20px;
 }
+
 @media (min-width: 375px) and (max-width: 720px) {
   .Colaps {
     flex-direction: column;

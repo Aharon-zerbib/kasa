@@ -101,6 +101,7 @@ h1 {
 .rating {
   display: flex;
   justify-content: end;
+  font-size: 24px;
 }
 .fas.fa-star {
   color: #e3e3e3;
@@ -114,7 +115,6 @@ h1 {
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 1024px;
 }
 .container_collapse {
   padding-left: 20px;

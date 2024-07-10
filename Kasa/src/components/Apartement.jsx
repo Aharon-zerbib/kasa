@@ -89,7 +89,7 @@ const Apartment = () => {
           <p>{apartment.host.name}</p>
           <img src={apartment.host.picture} alt={apartment.host.name} />
         </div>
-      </div>
+      </div>{" "}
       <div className="rating">{renderStars(apartment.rating)}</div>
       <div className="Tags">
         <ul>

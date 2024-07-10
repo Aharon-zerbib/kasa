@@ -4,11 +4,11 @@ import Navigation from "./Navigation";
 import Footer from "./Footer";
 import "../css/404.css";
 
-const NotUndifin = () => {
+const NotFound = () => {
   return (
     <div>
       <Navigation />
-      <section className=" error_container">
+      <section className="error_container">
         <h1 className="error_title">404</h1>
         <p className="error_text">
           Oups! La page que vous demandez n'existe pas.
@@ -24,4 +24,4 @@ const NotUndifin = () => {
   );
 };
 
-export default NotUndifin;
+export default NotFound;

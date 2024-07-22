@@ -8,13 +8,13 @@ import "../css/Apartment.css";
 //Configuration de Composant
 const Apartment = () => {
   const { id } = useParams();
-  const [apartment, setApartment] = useState(null);
-  const [error, setError] = useState(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [apartment, setApartment] = useState(null); //initialiser a null pour stocker les données de l'appartement
+  const [error] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); //initialiser a 0 pour gerer l'index dans le carrouse
 
   //Chargement des Données on recuper la data
   useEffect(() => {
-    fetch(`/data/data.json`)
+    fetch(`/data/data.json`) //requette pour obtenir les données JSON
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -22,22 +22,23 @@ const Apartment = () => {
         return response.json();
       })
       .then((data) => {
-        const foundApartment = data.find((apartment) => apartment.id === id);
+        const foundApartment = data.find((apartment) => apartment.id === id); //Cherche l'appartement correspondant a l'ID
         setApartment(foundApartment);
-      })
-      .catch((error) => setError(error.message));
-  }, [id]);
+      });
+  });
 
   // Creation de Carousel
   const nextSlide = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === apartment.pictures.length - 1 ? 0 : prevIndex + 1
+    setCurrentImageIndex(
+      (prevIndex) =>
+        prevIndex === apartment.pictures.length - 1 ? 0 : prevIndex + 1 //sinon passe à l'image suivante
     );
   };
 
   const prevSlide = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? apartment.pictures.length - 1 : prevIndex - 1
+    setCurrentImageIndex(
+      (prevIndex) =>
+        prevIndex === 0 ? apartment.pictures.length - 1 : prevIndex - 1 //sinon passe à l'image précédente
     );
   };
 
@@ -46,17 +47,19 @@ const Apartment = () => {
     const stars = [];
     for (let i = 0; i < 5; i++) {
       stars.push(
-        <i key={i} className={`fas fa-star ${i < rating ? "filled" : ""}`}></i>
+        <i key={i} className={`fas fa-star ${i < rating ? "filled" : ""}`}></i> //Ajout étoile au tableau
       );
     }
     return stars;
   };
 
   if (error) {
+    // erreur s'est produite
     return <div>Error: {error}</div>;
   }
 
   if (!apartment) {
+    //pas encore chargées
     return <div>Loading...</div>;
   }
 

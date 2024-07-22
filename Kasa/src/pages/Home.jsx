@@ -22,12 +22,12 @@ const Home = () => {
         }
         return response.json();
       })
-      .then((data) => setApartments(data))
-      .catch((error) => setError(error.message));
+      .then((data) => setApartments(data)) //Une fois données reçues metre a jour l'état
+      .catch((error) => setError(error.message)); //Une fois données reçues metre a jour l'état avec error
   }, []);
 
   const handleShowMore = () => {
-    setVisibleApartments((prevVisible) => prevVisible + apartmentsPerPage);
+    setVisibleApartments((prevVisible) => prevVisible + apartmentsPerPage); // Met à jour l'état visibleApartments en ajoutant apartmentsPerPage
   };
 
   // On afficherra "Navigation ,Banner ,AccommodationSquare" pour notre Homme

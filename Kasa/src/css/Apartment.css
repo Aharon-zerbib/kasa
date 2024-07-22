@@ -115,11 +115,16 @@ h1 {
   align-items: center;
   justify-content: center;
   width: 100%;
+  align-items: baseline;
 }
 .container_collapse {
   padding-left: 20px;
 }
-
+@media (min-width: 720px) {
+  .Colaps {
+    height: 80px;
+  }
+}
 @media (min-width: 375px) and (max-width: 720px) {
   .Colaps {
     flex-direction: column;
@@ -143,4 +148,10 @@ h1 {
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
+}
+.pourFooter {
+  padding-bottom: 150px;
+}
+footer {
+  /* metre quelle que chaususe mais je ne me rappelle plus c quoi */
 }

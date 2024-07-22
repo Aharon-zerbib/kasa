@@ -19,3 +19,6 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
+/* Ce commposent et nav qui comportera un logo une Accueil et A Propos il aurro des liens vers 
+ les pages quon leur on attribuer*/

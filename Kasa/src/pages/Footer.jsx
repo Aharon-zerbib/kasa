@@ -10,3 +10,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+// Ce composent et le Footer qui serra sur toute les pages

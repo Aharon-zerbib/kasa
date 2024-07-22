@@ -19,3 +19,5 @@ const Banner = () => {
 };
 
 export default Banner;
+
+// Ce coposent et la banier dans la page d'acceille elle comporterra une img aver un titelle

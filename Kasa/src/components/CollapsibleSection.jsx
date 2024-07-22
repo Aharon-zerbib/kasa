@@ -31,3 +31,5 @@ const CollapsibleSection = ({ title, content }) => {
 };
 
 export default CollapsibleSection;
+
+// Ce composent a une foction qui l'orsque quon click sa afficherra le contenue masquer

@@ -19,3 +19,5 @@ const AccommodationSquare = ({ apartment }) => {
 };
 
 export default AccommodationSquare;
+
+//Lien ver les appartement sur notre pague par defaut (qui comportera une cover et un titre )

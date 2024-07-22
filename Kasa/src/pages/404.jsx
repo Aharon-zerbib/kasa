@@ -25,3 +25,6 @@ const NotFound = () => {
 };
 
 export default NotFound;
+
+/*  Cette page a pour but detre une  error , ci on marque dans l'api une chausse qui nexiste pas sa
+renvera sur cette page avec un lien pour revennire a laceile*/

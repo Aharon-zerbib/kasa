@@ -6,6 +6,7 @@ import CollapsibleSection from "../components/CollapsibleSection";
 import "../css/Propo.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
+//Configuration de Composant avec nos tesxt a linterieur
 const About = () => {
   const sections = [
     {

@@ -5,12 +5,14 @@ import CollapsibleSection from "./CollapsibleSection";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../css/Apartment.css";
 
+//Configuration de Composant
 const Apartment = () => {
   const { id } = useParams();
   const [apartment, setApartment] = useState(null);
   const [error, setError] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  //Chargement des Données on recuper la data
   useEffect(() => {
     fetch(`/data/data.json`)
       .then((response) => {
@@ -26,6 +28,7 @@ const Apartment = () => {
       .catch((error) => setError(error.message));
   }, [id]);
 
+  // Creation de Carousel
   const nextSlide = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === apartment.pictures.length - 1 ? 0 : prevIndex + 1
@@ -38,6 +41,7 @@ const Apartment = () => {
     );
   };
 
+  // Implementation des etoiles
   const renderStars = (rating) => {
     const stars = [];
     for (let i = 0; i < 5; i++) {
@@ -56,6 +60,7 @@ const Apartment = () => {
     return <div>Loading...</div>;
   }
 
+  //Apelle des data pour les afficher sur norte pages
   return (
     <div>
       <Navigation />
@@ -80,44 +85,48 @@ const Apartment = () => {
           <i className="fas fa-chevron-right fa-3x"></i>
         </button>
       </div>
-      <div className="description">
-        <div className="lesTitre">
-          <h1>{apartment.title}</h1>
-          <p>{apartment.location}</p>
+      <div className="pourFooter">
+        <div className="description">
+          <div className="lesTitre">
+            <h1>{apartment.title}</h1>
+            <p>{apartment.location}</p>
+          </div>
+          <div className="host">
+            <p>{apartment.host.name}</p>
+            <img src={apartment.host.picture} alt={apartment.host.name} />
+          </div>
+        </div>{" "}
+        <div className="rating">{renderStars(apartment.rating)}</div>
+        <div className="Tags">
+          <ul>
+            {apartment.tags.map((tag, index) => (
+              <li key={index}>{tag}</li>
+            ))}
+          </ul>
         </div>
-        <div className="host">
-          <p>{apartment.host.name}</p>
-          <img src={apartment.host.picture} alt={apartment.host.name} />
+        <div className="Colaps">
+          <CollapsibleSection
+            title="Description"
+            content={apartment.description}
+          />
+          <CollapsibleSection
+            title="Équipements"
+            content={
+              <ul>
+                {apartment.equipments.map((equipment, index) => (
+                  <li key={index}>{equipment}</li>
+                ))}
+              </ul>
+            }
+          />
         </div>
-      </div>{" "}
-      <div className="rating">{renderStars(apartment.rating)}</div>
-      <div className="Tags">
-        <ul>
-          {apartment.tags.map((tag, index) => (
-            <li key={index}>{tag}</li>
-          ))}
-        </ul>
       </div>
-      <div className="Colaps">
-        <CollapsibleSection
-          title="Description"
-          content={apartment.description}
-        />
-        <CollapsibleSection
-          title="Équipements"
-          content={
-            <ul>
-              {apartment.equipments.map((equipment, index) => (
-                <li key={index}>{equipment}</li>
-              ))}
-            </ul>
-          }
-        />
-      </div>
-      <div className="footerContainer">
-        <img src="../public/kasa_white.svg" alt="kasa" />
-        <p className="PFooter">© 2020 Kasa. All rights reserved</p>
-      </div>
+      <footer>
+        <div className="footerContainer">
+          <img src="../public/kasa_white.svg" alt="kasa" />
+          <p className="PFooter">© 2020 Kasa. All rights reserved</p>
+        </div>
+      </footer>
     </div>
   );
 };

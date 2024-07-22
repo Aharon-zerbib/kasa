@@ -6,12 +6,14 @@ import AccommodationSquare from "../components/AccommodationSquare";
 import "../css/listAppartemen.css";
 import "../css/footer.css";
 
+//Configuration de Composant
 const Home = () => {
   const [apartments, setApartments] = useState([]);
   const [error, setError] = useState(null);
   const [visibleApartments, setVisibleApartments] = useState(6);
   const apartmentsPerPage = 6;
 
+  //Chargement des Données on recuper la data
   useEffect(() => {
     fetch("/data/data.json")
       .then((response) => {
@@ -28,6 +30,7 @@ const Home = () => {
     setVisibleApartments((prevVisible) => prevVisible + apartmentsPerPage);
   };
 
+  // On afficherra "Navigation ,Banner ,AccommodationSquare" pour notre Homme
   return (
     <div>
       <Navigation />

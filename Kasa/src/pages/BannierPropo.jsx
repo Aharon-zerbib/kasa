@@ -18,3 +18,5 @@ const Banner = () => {
 };
 
 export default Banner;
+
+// Ce coposent et la banier dans la page A Propo elle comporterra une img aver un titelle

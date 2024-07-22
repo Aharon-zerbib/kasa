@@ -25,5 +25,5 @@
 }
 
 .content.show {
-  display: block;
+  display: flex;
 }

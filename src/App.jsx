@@ -10,7 +10,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/kasa" element={<Home />} />
         <Route path="/Propo" element={<Propo />} />
         {/* path=* function si jamais  ne corespond pas */}
         <Route path="*" element={<NotUndifin />} />
